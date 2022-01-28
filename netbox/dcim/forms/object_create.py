@@ -445,6 +445,10 @@ class InterfaceCreateForm(ComponentCreateForm, InterfaceCommonForm):
         required=False,
         initial=True
     )
+    poe_enabled = forms.BooleanField(
+        required=False,
+        initial=True
+    )
     parent = DynamicModelChoiceField(
         queryset=Interface.objects.all(),
         required=False,
@@ -517,7 +521,7 @@ class InterfaceCreateForm(ComponentCreateForm, InterfaceCommonForm):
         label='Tagged VLANs'
     )
     field_order = (
-        'device', 'name_pattern', 'label_pattern', 'type', 'enabled', 'parent', 'bridge', 'lag', 'mtu', 'mac_address',
+        'device', 'name_pattern', 'label_pattern', 'type', 'enabled', 'poe_enabled', 'parent', 'bridge', 'lag', 'mtu', 'mac_address',
         'wwn', 'description', 'mgmt_only', 'mark_connected', 'rf_role', 'rf_channel', 'rf_channel_frequency',
         'rf_channel_width', 'mode', 'untagged_vlan', 'tagged_vlans', 'tags'
     )

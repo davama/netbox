@@ -827,7 +827,7 @@ class InterfaceFilterForm(DeviceComponentFilterForm):
     model = Interface
     field_groups = [
         ['q', 'tag'],
-        ['name', 'label', 'kind', 'type', 'enabled', 'mgmt_only', 'mac_address', 'wwn'],
+        ['name', 'label', 'kind', 'type', 'enabled', 'poe_enabled', 'mgmt_only', 'mac_address', 'wwn'],
         ['rf_role', 'rf_channel', 'rf_channel_width', 'tx_power'],
         ['region_id', 'site_group_id', 'site_id', 'location_id', 'virtual_chassis_id', 'device_id'],
     ]
@@ -842,6 +842,12 @@ class InterfaceFilterForm(DeviceComponentFilterForm):
         widget=StaticSelectMultiple()
     )
     enabled = forms.NullBooleanField(
+        required=False,
+        widget=StaticSelect(
+            choices=BOOLEAN_WITH_BLANK_CHOICES
+        )
+    )
+    poe_enabled = forms.NullBooleanField(
         required=False,
         widget=StaticSelect(
             choices=BOOLEAN_WITH_BLANK_CHOICES

@@ -1616,6 +1616,7 @@ class InterfaceTestCase(ViewTestCases.DeviceComponentViewTestCase):
             'name': 'Interface X',
             'type': InterfaceTypeChoices.TYPE_1GE_GBIC,
             'enabled': False,
+            'poe_enabled': False,
             'bridge': interfaces[4].pk,
             'lag': interfaces[3].pk,
             'mac_address': EUI('01:02:03:04:05:06'),
@@ -1636,6 +1637,7 @@ class InterfaceTestCase(ViewTestCases.DeviceComponentViewTestCase):
             'name_pattern': 'Interface [4-6]',
             'type': InterfaceTypeChoices.TYPE_1GE_GBIC,
             'enabled': False,
+            'poe_enabled': False,
             'bridge': interfaces[4].pk,
             'lag': interfaces[3].pk,
             'mac_address': EUI('01:02:03:04:05:06'),
@@ -1653,6 +1655,7 @@ class InterfaceTestCase(ViewTestCases.DeviceComponentViewTestCase):
         cls.bulk_edit_data = {
             'type': InterfaceTypeChoices.TYPE_1GE_FIXED,
             'enabled': True,
+            'poe_enabled': True,
             'lag': interfaces[3].pk,
             'mac_address': EUI('01:02:03:04:05:06'),
             'wwn': EUI('01:02:03:04:05:06:07:08', version=64),

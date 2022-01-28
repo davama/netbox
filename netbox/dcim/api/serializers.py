@@ -643,7 +643,7 @@ class InterfaceSerializer(PrimaryModelSerializer, LinkTerminationSerializer, Con
     class Meta:
         model = Interface
         fields = [
-            'id', 'url', 'display', 'device', 'name', 'label', 'type', 'enabled', 'parent', 'bridge', 'lag', 'mtu',
+            'id', 'url', 'display', 'device', 'name', 'label', 'type', 'enabled', 'poe_enabled', 'parent', 'bridge', 'lag', 'mtu',
             'mac_address', 'wwn', 'mgmt_only', 'description', 'mode', 'rf_role', 'rf_channel', 'rf_channel_frequency',
             'rf_channel_width', 'tx_power', 'untagged_vlan', 'tagged_vlans', 'mark_connected', 'cable', 'wireless_link',
             'link_peer', 'link_peer_type', 'wireless_lans', 'connected_endpoint', 'connected_endpoint_type',

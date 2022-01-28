@@ -961,6 +961,10 @@ class InterfaceBulkEditForm(
         required=False,
         widget=BulkEditNullBooleanSelect
     )
+    poe_enabled = forms.NullBooleanField(
+        required=False,
+        widget=BulkEditNullBooleanSelect
+    )
     parent = DynamicModelChoiceField(
         queryset=Interface.objects.all(),
         required=False

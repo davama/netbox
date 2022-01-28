@@ -600,7 +600,7 @@ class InterfaceCSVForm(CustomFieldModelCSVForm):
     class Meta:
         model = Interface
         fields = (
-            'device', 'name', 'label', 'parent', 'bridge', 'lag', 'type', 'enabled', 'mark_connected', 'mac_address',
+            'device', 'name', 'label', 'parent', 'bridge', 'lag', 'type', 'enabled', 'poe_enabled', 'mark_connected', 'mac_address',
             'wwn', 'mtu', 'mgmt_only', 'description', 'mode', 'rf_role', 'rf_channel', 'rf_channel_frequency',
             'rf_channel_width', 'tx_power',
         )
@@ -611,6 +611,13 @@ class InterfaceCSVForm(CustomFieldModelCSVForm):
             return True
         else:
             return self.cleaned_data['enabled']
+
+    def clean_poe_enabled(self):
+        # Make sure poe_enabled is True when it's not included in the uploaded data
+        if 'poe_enabled' not in self.data:
+            return True
+        else:
+            return self.cleaned_data['poe_enabled']
 
 
 class FrontPortCSVForm(CustomFieldModelCSVForm):

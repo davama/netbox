@@ -513,12 +513,12 @@ class InterfaceTable(DeviceComponentTable, BaseInterfaceTable, PathEndpointTable
     class Meta(DeviceComponentTable.Meta):
         model = Interface
         fields = (
-            'pk', 'id', 'name', 'device', 'label', 'enabled', 'type', 'mgmt_only', 'mtu', 'mode', 'mac_address', 'wwn',
+            'pk', 'id', 'name', 'device', 'label', 'enabled', 'poe_enabled', 'type', 'mgmt_only', 'mtu', 'mode', 'mac_address', 'wwn',
             'rf_role', 'rf_channel', 'rf_channel_frequency', 'rf_channel_width', 'tx_power', 'description',
             'mark_connected', 'cable', 'cable_color', 'wireless_link', 'wireless_lans', 'link_peer', 'connection',
             'tags', 'ip_addresses', 'fhrp_groups', 'untagged_vlan', 'tagged_vlans', 'created', 'last_updated',
         )
-        default_columns = ('pk', 'name', 'device', 'label', 'enabled', 'type', 'description')
+        default_columns = ('pk', 'name', 'device', 'label', 'enabled', 'poe_enabled', 'type', 'description')
 
 
 class DeviceInterfaceTable(InterfaceTable):
@@ -548,14 +548,14 @@ class DeviceInterfaceTable(InterfaceTable):
     class Meta(DeviceComponentTable.Meta):
         model = Interface
         fields = (
-            'pk', 'id', 'name', 'label', 'enabled', 'type', 'parent', 'bridge', 'lag', 'mgmt_only', 'mtu', 'mode',
+            'pk', 'id', 'name', 'label', 'enabled', 'poe_enabled', 'type', 'parent', 'bridge', 'lag', 'mgmt_only', 'mtu', 'mode',
             'mac_address', 'wwn', 'rf_role', 'rf_channel', 'rf_channel_frequency', 'rf_channel_width', 'tx_power',
             'description', 'mark_connected', 'cable', 'cable_color', 'wireless_link', 'wireless_lans', 'link_peer',
             'connection', 'tags', 'ip_addresses', 'fhrp_groups', 'untagged_vlan', 'tagged_vlans', 'actions',
         )
         order_by = ('name',)
         default_columns = (
-            'pk', 'name', 'label', 'enabled', 'type', 'parent', 'lag', 'mtu', 'mode', 'description', 'ip_addresses',
+            'pk', 'name', 'label', 'enabled', 'poe_enabled', 'type', 'parent', 'lag', 'mtu', 'mode', 'description', 'ip_addresses',
             'cable', 'connection', 'actions',
         )
         row_attrs = {

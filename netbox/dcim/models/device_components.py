@@ -532,6 +532,9 @@ class Interface(ComponentModel, BaseInterface, LinkTermination, PathEndpoint):
         max_length=50,
         choices=InterfaceTypeChoices
     )
+    poe_enabled = models.BooleanField(
+        default=False
+    )
     mgmt_only = models.BooleanField(
         default=False,
         verbose_name='Management only',

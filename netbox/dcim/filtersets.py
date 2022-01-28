@@ -1028,7 +1028,7 @@ class InterfaceFilterSet(PrimaryModelFilterSet, DeviceComponentFilterSet, CableT
     class Meta:
         model = Interface
         fields = [
-            'id', 'name', 'label', 'type', 'enabled', 'mtu', 'mgmt_only', 'mode', 'rf_role', 'rf_channel',
+            'id', 'name', 'label', 'type', 'enabled', 'poe_enabled', 'mtu', 'mgmt_only', 'mode', 'rf_role', 'rf_channel',
             'rf_channel_frequency', 'rf_channel_width', 'tx_power', 'description',
         ]
 
